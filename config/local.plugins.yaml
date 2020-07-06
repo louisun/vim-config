@@ -1,0 +1,5 @@
+- repo: arcticicestudio/nord-vim
+- repo: vim-airline/vim-airline
+  rev: 8177d63
+- repo: vim-airline/vim-airline-themes
+- repo: tpope/vim-surround

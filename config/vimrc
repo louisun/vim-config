@@ -1,0 +1,80 @@
+" 设置本配置路径为 VIM 根路径
+let $VIM_PATH = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
+
+" 加载脚本文件的函数，其实就是 soruce 文件绝对路径，
+function! s:source_file(path, ...)
+	" Source user configuration files with set/global sensitivity
+	let use_global = get(a:000, 0, ! has('vim_starting'))
+	let abspath = resolve($VIM_PATH . '/' . a:path)
+    " vim 启动时，加载各脚本文件
+	if ! use_global
+		execute 'source' fnameescape(abspath)
+		return
+	endif
+
+    " vim 运行时，先生成其temp文件，再加载，最后删除temp文件
+	let tempfile = tempname()
+	let content = map(readfile(abspath),
+		\ "substitute(v:val, '^\\W*\\zsset\\ze\\W', 'setglobal', '')")
+	try
+		call writefile(content, tempfile)
+		execute printf('source %s', fnameescape(tempfile))
+	finally
+		if filereadable(tempfile)
+			call delete(tempfile)
+		endif
+	endtry
+endfunction
+
+
+function! s:source_directory(path)
+	let abspath = resolve($VIM_PATH . '/' . a:path . '/*.vim')
+    for f in split(glob(abspath), '\n')
+        execute 'source' f
+    endfor
+endfunction
+
+" 初始化启动设置
+if has('vim_starting')
+	" Required before loading plugins.
+    " leader: ','
+    " local-leader: ';'
+	let g:mapleader=","
+	let g:maplocalleader=';'
+
+	" Release keymappings prefixes, evict entirely for use of plug-ins.
+	nnoremap <Space>  <Nop>
+	xnoremap <Space>  <Nop>
+	nnoremap ,        <Nop>
+	xnoremap ,        <Nop>
+	nnoremap ;        <Nop>
+	xnoremap ;        <Nop>
+
+	" Vim only, Linux terminal setting
+	if ! has('nvim') && ! has('gui_running') && ! has('win32') && ! has('win64')
+		call s:source_file('config/vim_terminal.vim')
+	endif
+endif
+
+" Load user scripts with confidential information
+" or pre-settings like g:elite_mode
+if filereadable($VIM_PATH . '/.vault.vim')
+	call s:source_file('.vault.vim')
+endif
+
+" 加载主配置文件，初始化插件管理
+call s:source_file('config/init.vim')
+call s:source_file('config/plugins/all.vim')
+
+" 加载化个人配置
+call s:source_file('config/general.vim')
+call s:source_file('config/filetype.vim')
+call s:source_file('config/mappings.vim')
+
+" 选择性加载本地自定义配置
+if filereadable($VIM_PATH . '/config/local.vim')
+	call s:source_file('config/local.vim')
+endif
+
+" 主题配色
+colorscheme nord
