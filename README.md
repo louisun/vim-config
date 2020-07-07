@@ -230,7 +230,7 @@ make install
 | <kbd>j</kbd> / <kbd>k</kbd>              | 𝐍 𝐕   | Cursor moves through display-lines           | `g` `j/k`                                   |
 | <kbd>g</kbd>+<kbd>j</kbd> / <kbd>k</kbd> | 𝐍 𝐕 𝐒 | Jump to edge upward/downward                 | <small>[haya14busa/vim-edgemotion]</small>  |
 | <kbd>gh</kbd> / <kbd>gl</kbd>            | 𝐍 𝐕   | Easier line-wise movement                    | `g` `^/$`                                   |
-| <kbd>;</kbd>+<kbd>;</kbd>        | 𝐍 𝐕   | Toggle visual-line mode                      | `V` / <kbd>Escape</kbd>                     |
+| <kbd>,</kbd>+<kbd>,</kbd>        | 𝐍 𝐕   | Toggle visual-line mode                      | `V` / <kbd>Escape</kbd>                     |
 | <kbd>v</kbd> / <kbd>V</kbd>              | 𝐕     | Expand/reduce selection                      | <small>[terryma/vim-expand-region]</small>  |
 | <kbd>zl</kbd> / <kbd>zh</kbd>            | 𝐍     | Scroll horizontally and vertically wider     | `z4` `l/h`                                  |
 | <kbd>Ctrl</kbd>+<kbd>j</kbd>             | 𝐍     | Move to split below                          | <small>[christoomey/tmux-navigator]</small> |
@@ -241,7 +241,7 @@ make install
 | <kbd>Shift</kbd>+<kbd>Return</kbd>       | 𝐍     | Focus the current fold by closing all others | `zMzvzt`                                    |
 | <kbd>]q</kbd> or <kbd>]q</kbd>           | 𝐍     | Next/previous on quickfix list               | `:cnext` / `:cprev`                         |
 | <kbd>]l</kbd> or <kbd>]l</kbd>           | 𝐍     | Next/previous on location-list               | `:lnext` / `:lprev`                         |
-| <kbd>]w</kbd> or <kbd>]w</kbd>           | 𝐍     | Next/previous white; error               | <small>[plugin/white;.vim]</small>      |
+| <kbd>]w</kbd> or <kbd>]w</kbd>           | 𝐍     | Next/previous white, error               | <small>[plugin/white,.vim]</small>      |
 | <kbd>]g</kbd> or <kbd>]g</kbd>           | 𝐍     | Next/previous Git hunk                       | <small>[airblade/vim-gitgutter]</small>     |
 | <kbd>]c</kbd> or <kbd>]c</kbd>           | 𝐍     | Next/previous Ale diagnostic                 | <small>[dense-analysis/ale]</small>         |
 | <kbd>Ctrl</kbd>+<kbd>f</kbd>             | 𝐂     | Move cursor forwards in command              | <kbd>Right</kbd>                            |
@@ -253,9 +253,9 @@ make install
 
 | Key                            | Mode    | Action                                   | Plugin or Mapping      |
 | ------------------------------ | ------- | ---------------------------------------- | ---------------------- |
-| <kbd>;</kbd>+<kbd>cd</kbd> | 𝐍       | Switch to the directory of opened buffer | `:lcd %:p:h`           |
+| <kbd>,</kbd>+<kbd>cd</kbd> | 𝐍       | Switch to the directory of opened buffer | `:lcd %:p:h`           |
 | <kbd>gf</kbd>                  | 𝐍 𝐕     | Open file under the cursor in a vsplit   | `:rightbelow wincmd f` |
-| <kbd>;</kbd>+<kbd>w</kbd>  | 𝐍 𝐕 𝐒   | Write buffer to file                     | `:write`               |
+| <kbd>,</kbd>+<kbd>w</kbd>  | 𝐍 𝐕 𝐒   | Write buffer to file                     | `:write`               |
 | <kbd>Ctrl</kbd>+<kbd>s</kbd>   | 𝐍 𝐕 𝐒 𝐂 | Write buffer to file                     | `:write`               |
 
 ### Edit
@@ -272,13 +272,13 @@ make install
 | <kbd>Shift</kbd>+<kbd>Tab</kbd>                | 𝐕 𝐒   | Indent to left and re-select               | `<gv`                                      |      |
 | <kbd>gc</kbd>                                  | 𝐍 𝐕 𝐒 | Caw (comments plugin) prefix               | <small>[tyru/caw.vim]</small>              |      |
 | <kbd>gcc</kbd>                                 | 𝐍 𝐕 𝐒 | Toggle comments                            | <small>[tyru/caw.vim]</small>              |      |
-| <kbd>;</kbd>+<kbd>v</kbd>                  | 𝐍 𝐕 𝐒 | Toggle single-line comments                | <small>[tyru/caw.vim]</small>              |      |
-| <kbd>;</kbd>+<kbd>V</kbd>                  | 𝐍 𝐕 𝐒 | Toggle comment block                       | <small>[tyru/caw.vim]</small>              |      |
-| <kbd>;</kbd>+<kbd>j</kbd> or <kbd>k</kbd>  | 𝐍 𝐕   | Move lines down/up                         | `:m` …                                     |      |
-| <kbd>;</kbd>+<kbd>d</kbd>                  | 𝐍 𝐕   | Duplicate line or selection                |                                            |      |
-| <kbd>;</kbd>+<kbd>cn</kbd> / <kbd>cN</kbd> | 𝐍 𝐕   | Change current word in a repeatable manner |                                            |      |
-| <kbd>;</kbd>+<kbd>cp</kbd>                 | 𝐍     | Duplicate paragraph                        | `yap<S-}>p`                                |      |
-| <kbd>;</kbd>+<kbd>cw</kbd>                 | 𝐍     | Remove all ;s at EOL                   | `:%s/\s\+$//e`                             |      |
+| <kbd>,</kbd>+<kbd>v</kbd>                  | 𝐍 𝐕 𝐒 | Toggle single-line comments                | <small>[tyru/caw.vim]</small>              |      |
+| <kbd>,</kbd>+<kbd>V</kbd>                  | 𝐍 𝐕 𝐒 | Toggle comment block                       | <small>[tyru/caw.vim]</small>              |      |
+| <kbd>,</kbd>+<kbd>j</kbd> or <kbd>k</kbd>  | 𝐍 𝐕   | Move lines down/up                         | `:m` …                                     |      |
+| <kbd>,</kbd>+<kbd>d</kbd>                  | 𝐍 𝐕   | Duplicate line or selection                |                                            |      |
+| <kbd>,</kbd>+<kbd>cn</kbd> / <kbd>cN</kbd> | 𝐍 𝐕   | Change current word in a repeatable manner |                                            |      |
+| <kbd>,</kbd>+<kbd>cp</kbd>                 | 𝐍     | Duplicate paragraph                        | `yap<S-}>p`                                |      |
+| <kbd>,</kbd>+<kbd>cw</kbd>                 | 𝐍     | Remove all ,s at EOL                   | `:%s/\s\+$//e`                             |      |
 | <kbd>Ctrl</kbd>+<kbd>Tab</kbd>                 | 𝐈     | Jump outside of pair                       | <small>[Raimondi/delimitMate]</small>      |      |
 | <kbd>sj</kbd> / <kbd>sk</kbd>                  | 𝐍     | Join/split arguments                       | <small>[AndrewRadev/splitjoin.vim]</small> |      |
 | <kbd>dsf</kbd> / <kbd>csf</kbd>                | 𝐍     | Delete/change surrounding function call    | <small>[AndrewRadev/dsf.vim]</small>       |      |
@@ -289,7 +289,7 @@ make install
 | ----------------------------- | ---- | ------------------------------------------------ | ---------------------------------------- |
 | <kbd>*</kbd> / <kbd>#</kbd>   | 𝐍 𝐕  | Search selection forward/backward                | <small>[haya14busa/vim-asterisk]</small> |
 | <kbd>g*</kbd> / <kbd>g#</kbd> | 𝐍 𝐕  | Search whole-word forward/backward               | <small>[haya14busa/vim-asterisk]</small> |
-| <kbd>Back;</kbd>          | 𝐍    | Match bracket                                    | `%`                                      |
+| <kbd>Back,</kbd>          | 𝐍    | Match bracket                                    | `%`                                      |
 | <kbd>gp</kbd>                 | 𝐍    | Select last paste                                |                                          |
 | <kbd>sg</kbd>                 | 𝐕    | Replace within selected area                     | `:s/⌴/gc`                                |
 | <kbd>Ctrl</kbd>+<kbd>r</kbd>  | 𝐕    | Replace selection with step-by-step confirmation | `:%s/\V/⌴/gc`                            |
@@ -300,8 +300,8 @@ make install
 | ----------------------------- | ---- | ------------------------------------ | ------------------------------------------ |
 | <kbd>p</kbd>                  | 𝐕 𝐒  | Paste without yank                   | <small>[kana/vim-operator-replace]</small> |
 | <kbd>Y</kbd>                  | 𝐍    | Yank to the end of line              | `y$`                                       |
-| <kbd>;</kbd>+<kbd>y</kbd> | 𝐍    | Copy relative file-path to clipboard |                                            |
-| <kbd>;</kbd>+<kbd>Y</kbd> | 𝐍    | Copy absolute file-path to clipboard |                                            |
+| <kbd>,</kbd>+<kbd>y</kbd> | 𝐍    | Copy relative file-path to clipboard |                                            |
+| <kbd>,</kbd>+<kbd>Y</kbd> | 𝐍    | Copy absolute file-path to clipboard |                                            |
 
 ### Command & History
 
@@ -316,12 +316,12 @@ make install
 
 | Key                                            | Mode | Action                         | Plugin or Mapping                                |
 | ---------------------------------------------- | ---- | ------------------------------ | ------------------------------------------------ |
-| <kbd>;</kbd>+<kbd>ts</kbd>                 | 𝐍    | Toggle spell-checker           | <small>`:setlocal spell!`</small>                |
-| <kbd>;</kbd>+<kbd>tn</kbd>                 | 𝐍    | Toggle line numbers            | <small>`:setlocal nonumber!`</small>             |
-| <kbd>;</kbd>+<kbd>tl</kbd>                 | 𝐍    | Toggle hidden characters       | <small>`:setlocal nolist!`</small>               |
-| <kbd>;</kbd>+<kbd>th</kbd>                 | 𝐍    | Toggle highlighted search      | <small>`:set hlsearch!`</small>                  |
-| <kbd>;</kbd>+<kbd>tw</kbd>                 | 𝐍    | Toggle wrap                    | <small>`:setlocal wrap!`</small> …               |
-| <kbd>;</kbd>+<kbd>ti</kbd>                 | 𝐍    | Toggle indentation lines       | <small>[nathanaelkane/vim-indent-guides]</small> |
+| <kbd>,</kbd>+<kbd>ts</kbd>                 | 𝐍    | Toggle spell-checker           | <small>`:setlocal spell!`</small>                |
+| <kbd>,</kbd>+<kbd>tn</kbd>                 | 𝐍    | Toggle line numbers            | <small>`:setlocal nonumber!`</small>             |
+| <kbd>,</kbd>+<kbd>tl</kbd>                 | 𝐍    | Toggle hidden characters       | <small>`:setlocal nolist!`</small>               |
+| <kbd>,</kbd>+<kbd>th</kbd>                 | 𝐍    | Toggle highlighted search      | <small>`:set hlsearch!`</small>                  |
+| <kbd>,</kbd>+<kbd>tw</kbd>                 | 𝐍    | Toggle wrap                    | <small>`:setlocal wrap!`</small> …               |
+| <kbd>,</kbd>+<kbd>ti</kbd>                 | 𝐍    | Toggle indentation lines       | <small>[nathanaelkane/vim-indent-guides]</small> |
 | <kbd>g1</kbd>                                  | 𝐍    | Go to first tab                | `:tabfirst`                                      |
 | <kbd>g9</kbd>                                  | 𝐍    | Go to last tab                 | `:tablast`                                       |
 | <kbd>g5</kbd>                                  | 𝐍    | Go to previous tab             | `:tabprevious`                                   |
@@ -331,7 +331,7 @@ make install
 | <kbd>Alt</kbd>+<kbd>k</kbd>                    | 𝐍    | Go to previous tab             | `:tabprevious`                                   |
 | <kbd>Alt</kbd>+<kbd>{</kbd>                    | 𝐍    | Move tab backward              | `:-tabmove`                                      |
 | <kbd>Alt</kbd>+<kbd>}</kbd>                    | 𝐍    | Move tab forward               | `:+tabmove`                                      |
-| <kbd>;</kbd>+<kbd>h</kbd>                  | 𝐍    | Show highlight groups for word |                                                  |
+| <kbd>,</kbd>+<kbd>h</kbd>                  | 𝐍    | Show highlight groups for word |                                                  |
 
 ### Custom Tools & Plugins
 
@@ -340,30 +340,30 @@ make install
 | <kbd>-</kbd>                               | 𝐍    | Choose a window to edit                           | <small>[t9md/vim-choosewin]</small>        |
 | <kbd>;</kbd>+<kbd>c</kbd>                  | 𝐍    | Open context-menu                                 | <small>[plugin/actionmenu.vim]</small>     |
 | <kbd>gK</kbd>                              | 𝐍    | Open Zeal or Dash on some file-types              | <small>[plugin/devhelp.vim]</small>        |
-| <kbd>;</kbd>+<kbd>l</kbd>              | 𝐍    | Open side-menu helper                             | <small>[rafi/vim-sidemenu]</small>         |
-| <kbd>;</kbd>+<kbd>b</kbd>              | 𝐍    | Open structure window                             | <small>[liuchengxu/vista.vim]</small>      |
-| <kbd>;</kbd>+<kbd>a</kbd>              | 𝐍    | Show nearby tag in structure window               | <small>[liuchengxu/vista.vim]</small>      |
-| <kbd>;</kbd>+<kbd>se</kbd>             | 𝐍    | Save current work; session                    | <small>[plugin/sessions.vim]</small>       |
-| <kbd>;</kbd>+<kbd>sl</kbd>             | 𝐍    | Load work; session                            | <small>[plugin/sessions.vim]</small>       |
-| <kbd>;</kbd>+<kbd>o</kbd>              | 𝐍 𝐕  | Open SCM detailed URL in browser                  | <small>[plugin/browser.vim]</small>        |
-| <kbd>;</kbd>+<kbd>n</kbd>/<kbd>N</kbd> | 𝐍    | Open alternative file                             | <small>[kana/vim-altr]</small>             |
-| <kbd>;</kbd>+<kbd>tc</kbd>             | 𝐍    | Enable scroll-context window                      | <small>[wellle/context.vim]</small>        |
-| <kbd>;</kbd>+<kbd>tp</kbd>             | 𝐍    | Peek scroll-context window                        | <small>[wellle/context.vim]</small>        |
-| <kbd>;</kbd>+<kbd>S</kbd>              | 𝐍 𝐕  | Source selection                                  | `y:execute @@`                             |
-| <kbd>;</kbd>+<kbd>?</kbd>              | 𝐍    | Open the macOS dictionary on current word         | `:!open dict://`                           |
-| <kbd>;</kbd>+<kbd>P</kbd>              | 𝐍    | Use Marked 2 for real-time Markdown preview       | <small>[Marked 2]</small>                  |
-| <kbd>;</kbd>+<kbd>ml</kbd>             | 𝐍    | Append modeline to end of buffer                  | <small>[config/mappings.vim]</small>       |
-| <kbd>;</kbd>+<kbd>mda</kbd>            | 𝐕    | Sequentially mark region for diff                 | <small>[AndrewRadev/linediff.vim]</small>  |
-| <kbd>;</kbd>+<kbd>mdf</kbd>            | 𝐕    | Mark region for diff and compare if more than one | <small>[AndrewRadev/linediff.vim]</small>  |
-| <kbd>;</kbd>+<kbd>mds</kbd>            | 𝐍    | Shows the comparison for all marked regions       | <small>[AndrewRadev/linediff.vim]</small>  |
-| <kbd>;</kbd>+<kbd>mdr</kbd>            | 𝐍    | Removes the signs denoting the diff regions       | <small>[AndrewRadev/linediff.vim]</small>  |
-| <kbd>;</kbd>+<kbd>mg</kbd>             | 𝐍    | Open Magit                                        | <small>[jreybert/vimagit]</small>          |
-| <kbd>;</kbd>+<kbd>mt</kbd>             | 𝐍 𝐕  | Toggle highlighted word                           | <small>[t9md/vim-quickhl]</small>          |
-| <kbd>;</kbd>+<kbd>-</kbd>              | 𝐍    | Switch editing window with selected               | <small>[t9md/vim-choosewin]</small>        |
-| <kbd>;</kbd>+<kbd>G</kbd>              | 𝐍    | Toggle distraction-free writing                   | <small>[junegunn/goyo]</small>             |
-| <kbd>;</kbd>+<kbd>gu</kbd>             | 𝐍    | Open undo-tree                                    | <small>[mbbill/undotree]</small>           |
-| <kbd>;</kbd>+<kbd>K</kbd>              | 𝐍    | Thesaurus                                         | <small>[Ron89/thesaurus_query.vim]</small> |
-| <kbd>;</kbd>+<kbd>W</kbd>              | 𝐍    | VimWiki                                           | <small>[vimwiki/vimwiki]</small>           |
+| <kbd>,</kbd>+<kbd>l</kbd>              | 𝐍    | Open side-menu helper                             | <small>[rafi/vim-sidemenu]</small>         |
+| <kbd>,</kbd>+<kbd>b</kbd>              | 𝐍    | Open structure window                             | <small>[liuchengxu/vista.vim]</small>      |
+| <kbd>,</kbd>+<kbd>a</kbd>              | 𝐍    | Show nearby tag in structure window               | <small>[liuchengxu/vista.vim]</small>      |
+| <kbd>,</kbd>+<kbd>se</kbd>             | 𝐍    | Save current work, session                    | <small>[plugin/sessions.vim]</small>       |
+| <kbd>,</kbd>+<kbd>sl</kbd>             | 𝐍    | Load work, session                            | <small>[plugin/sessions.vim]</small>       |
+| <kbd>,</kbd>+<kbd>o</kbd>              | 𝐍 𝐕  | Open SCM detailed URL in browser                  | <small>[plugin/browser.vim]</small>        |
+| <kbd>,</kbd>+<kbd>n</kbd>/<kbd>N</kbd> | 𝐍    | Open alternative file                             | <small>[kana/vim-altr]</small>             |
+| <kbd>,</kbd>+<kbd>tc</kbd>             | 𝐍    | Enable scroll-context window                      | <small>[wellle/context.vim]</small>        |
+| <kbd>,</kbd>+<kbd>tp</kbd>             | 𝐍    | Peek scroll-context window                        | <small>[wellle/context.vim]</small>        |
+| <kbd>,</kbd>+<kbd>S</kbd>              | 𝐍 𝐕  | Source selection                                  | `y:execute @@`                             |
+| <kbd>,</kbd>+<kbd>?</kbd>              | 𝐍    | Open the macOS dictionary on current word         | `:!open dict://`                           |
+| <kbd>,</kbd>+<kbd>P</kbd>              | 𝐍    | Use Marked 2 for real-time Markdown preview       | <small>[Marked 2]</small>                  |
+| <kbd>,</kbd>+<kbd>ml</kbd>             | 𝐍    | Append modeline to end of buffer                  | <small>[config/mappings.vim]</small>       |
+| <kbd>,</kbd>+<kbd>mda</kbd>            | 𝐕    | Sequentially mark region for diff                 | <small>[AndrewRadev/linediff.vim]</small>  |
+| <kbd>,</kbd>+<kbd>mdf</kbd>            | 𝐕    | Mark region for diff and compare if more than one | <small>[AndrewRadev/linediff.vim]</small>  |
+| <kbd>,</kbd>+<kbd>mds</kbd>            | 𝐍    | Shows the comparison for all marked regions       | <small>[AndrewRadev/linediff.vim]</small>  |
+| <kbd>,</kbd>+<kbd>mdr</kbd>            | 𝐍    | Removes the signs denoting the diff regions       | <small>[AndrewRadev/linediff.vim]</small>  |
+| <kbd>,</kbd>+<kbd>mg</kbd>             | 𝐍    | Open Magit                                        | <small>[jreybert/vimagit]</small>          |
+| <kbd>,</kbd>+<kbd>mt</kbd>             | 𝐍 𝐕  | Toggle highlighted word                           | <small>[t9md/vim-quickhl]</small>          |
+| <kbd>,</kbd>+<kbd>-</kbd>              | 𝐍    | Switch editing window with selected               | <small>[t9md/vim-choosewin]</small>        |
+| <kbd>,</kbd>+<kbd>G</kbd>              | 𝐍    | Toggle distraction-free writing                   | <small>[junegunn/goyo]</small>             |
+| <kbd>,</kbd>+<kbd>gu</kbd>             | 𝐍    | Open undo-tree                                    | <small>[mbbill/undotree]</small>           |
+| <kbd>,</kbd>+<kbd>K</kbd>              | 𝐍    | Thesaurus                                         | <small>[Ron89/thesaurus_query.vim]</small> |
+| <kbd>,</kbd>+<kbd>W</kbd>              | 𝐍    | VimWiki                                           | <small>[vimwiki/vimwiki]</small>           |
 
 ### Window Management
 
@@ -391,13 +391,13 @@ make install
 | ------------------------------ | ----- | -------------------- | --------------------------------------- |
 | <kbd>gs</kbd>                  | 𝐍     | Preview hunk         | <small>[airblade/vim-gitgutter]</small> |
 | <kbd>gS</kbd>                  | 𝐍 𝐕 𝐒 | Stage hunk           | <small>[airblade/vim-gitgutter]</small> |
-| <kbd>;</kbd>+<kbd>gr</kbd> | 𝐍     | Revert hunk          | <small>[airblade/vim-gitgutter]</small> |
-| <kbd>;</kbd>+<kbd>ga</kbd> | 𝐍     | Git add current file | <small>[chemzqm/vim-easygit]</small>    |
-| <kbd>;</kbd>+<kbd>gd</kbd> | 𝐍     | Git diff             | <small>[chemzqm/vim-easygit]</small>    |
-| <kbd>;</kbd>+<kbd>gc</kbd> | 𝐍     | Git commit           | <small>[chemzqm/vim-easygit]</small>    |
-| <kbd>;</kbd>+<kbd>gb</kbd> | 𝐍     | Git blame            | <small>[chemzqm/vim-easygit]</small>    |
-| <kbd>;</kbd>+<kbd>gF</kbd> | 𝐍     | Git fetch            | <small>[chemzqm/vim-easygit]</small>    |
-| <kbd>;</kbd>+<kbd>gp</kbd> | 𝐍     | Git push             | <small>[chemzqm/vim-easygit]</small>    |
+| <kbd>,</kbd>+<kbd>gr</kbd> | 𝐍     | Revert hunk          | <small>[airblade/vim-gitgutter]</small> |
+| <kbd>,</kbd>+<kbd>ga</kbd> | 𝐍     | Git add current file | <small>[chemzqm/vim-easygit]</small>    |
+| <kbd>,</kbd>+<kbd>gd</kbd> | 𝐍     | Git diff             | <small>[chemzqm/vim-easygit]</small>    |
+| <kbd>,</kbd>+<kbd>gc</kbd> | 𝐍     | Git commit           | <small>[chemzqm/vim-easygit]</small>    |
+| <kbd>,</kbd>+<kbd>gb</kbd> | 𝐍     | Git blame            | <small>[chemzqm/vim-easygit]</small>    |
+| <kbd>,</kbd>+<kbd>gF</kbd> | 𝐍     | Git fetch            | <small>[chemzqm/vim-easygit]</small>    |
+| <kbd>,</kbd>+<kbd>gp</kbd> | 𝐍     | Git push             | <small>[chemzqm/vim-easygit]</small>    |
 
 ### Plugin: Denite
 
@@ -424,18 +424,18 @@ make install
 | <kbd>;;</kbd>                                     | 𝐍    | Command history                       |
 | <kbd>;/</kbd>                                     | 𝐍    | Buffer lines                          |
 | <kbd>;*</kbd>                                     | 𝐍    | Search word under cursor with lines   |
-| <kbd>;</kbd>+<kbd>gl</kbd>                    | 𝐍    | Git log (all)                         |
-| <kbd>;</kbd>+<kbd>gs</kbd>                    | 𝐍    | Git status                            |
-| <kbd>;</kbd>+<kbd>gc</kbd>                    | 𝐍    | Git branches                          |
-| <kbd>;</kbd>+<kbd>gt</kbd>                    | 𝐍    | Find tags matching word under cursor  |
-| <kbd>;</kbd>+<kbd>gf</kbd>                    | 𝐍    | Find files matching word under cursor |
-| <kbd>;</kbd>+<kbd>gg</kbd>                    | 𝐍 𝐕  | Grep word under cursor                |
+| <kbd>,</kbd>+<kbd>gl</kbd>                    | 𝐍    | Git log (all)                         |
+| <kbd>,</kbd>+<kbd>gs</kbd>                    | 𝐍    | Git status                            |
+| <kbd>,</kbd>+<kbd>gc</kbd>                    | 𝐍    | Git branches                          |
+| <kbd>,</kbd>+<kbd>gt</kbd>                    | 𝐍    | Find tags matching word under cursor  |
+| <kbd>,</kbd>+<kbd>gf</kbd>                    | 𝐍    | Find files matching word under cursor |
+| <kbd>,</kbd>+<kbd>gg</kbd>                    | 𝐍 𝐕  | Grep word under cursor                |
 | **Within _Denite_ window**                        |      |                                       |
 | <kbd>jj</kbd> or <kbd>Escape</kbd>                | 𝐈    | Leave Insert mode                     |
 | <kbd>i</kbd> or <kbd>/</kbd>                      | 𝐍    | Enter Insert mode (filter input)      |
 | <kbd>q</kbd> or <kbd>Escape</kbd>                 | 𝐍    | Exit denite window                    |
 | <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> | 𝐈    | Next/previous candidate               |
-| <kbd>;</kbd>                                  | 𝐍    | Select candidate entry                |
+| <kbd>,</kbd>                                  | 𝐍    | Select candidate entry                |
 | <kbd>dd</kbd>                                     | 𝐍    | Delete entry                          |
 | <kbd>p</kbd>                                      | 𝐍    | Preview entry                         |
 | <kbd>st</kbd>                                     | 𝐍    | Open in a new tab                     |
@@ -458,11 +458,11 @@ make install
 | <kbd>h</kbd>                                        | 𝐍    | Collapse directory tree                       |
 | <kbd>t</kbd>                                        | 𝐍    | Expand directory tree recursively             |
 | <kbd>.</kbd>                                        | 𝐍    | Toggle hidden files                           |
-| <kbd>;</kbd>                                    | 𝐍    | Select entry                                  |
+| <kbd>,</kbd>                                    | 𝐍    | Select entry                                  |
 | <kbd>*</kbd>                                        | 𝐍    | Invert selection (select all)                 |
 | <kbd>&</kbd> or <kbd>\</kbd>                        | 𝐍    | Change into current working directory         |
 | <kbd>~</kbd>                                        | 𝐍    | Change to user home directory                 |
-| <kbd>u</kbd> or <kbd>Back;</kbd>                | 𝐍    | Change into parent directory                  |
+| <kbd>u</kbd> or <kbd>Back,</kbd>                | 𝐍    | Change into parent directory                  |
 | <kbd>u</kbd> <kbd>2</kbd>/<kbd>3</kbd>/<kbd>4</kbd> | 𝐍    | Change into parent directory count            |
 | <kbd>st</kbd>                                       | 𝐍    | Open file in new tab                          |
 | <kbd>sv</kbd>                                       | 𝐍    | Open file in a horizontal split               |
@@ -490,7 +490,7 @@ make install
 | <kbd>Enter</kbd>                                             | 𝐈    | Select completion or expand snippet  |
 | <kbd>Ctrl</kbd>+<kbd>j</kbd>/<kbd>k</kbd>/<kbd>d</kbd>/<kbd>u</kbd> | 𝐈    | Movement in completion pop-up        |
 | <kbd>Ctrl</kbd>+<kbd>Return</kbd>                            | 𝐈    | Expand Emmet sequence                |
-| <kbd>Ctrl</kbd>+<kbd>;</kbd>                             | 𝐈    | Refresh and show candidates          |
+| <kbd>Ctrl</kbd>+<kbd>,</kbd>                             | 𝐈    | Refresh and show candidates          |
 | <kbd>Ctrl</kbd>+<kbd>y</kbd>                                 | 𝐈    | Close pop-up                         |
 | <kbd>Ctrl</kbd>+<kbd>e</kbd>                                 | 𝐈    | Cancel selection and close pop-up    |
 | <kbd>Ctrl</kbd>+<kbd>l</kbd>                                 | 𝐈    | Expand snippet at cursor             |
@@ -511,7 +511,7 @@ make install
 | <kbd>]=</kbd>                     | 𝐍    | Jump to next marker                                          |
 | <kbd>[=</kbd>                     | 𝐍    | Jump to previous marker                                      |
 | <kbd>m-</kbd>                     | 𝐍    | Purge all on current line                                    |
-| <kbd>m</kbd> <kbd>;</kbd>     | 𝐍    | Purge marks                                                  |
-| <kbd>m</kbd> <kbd>Back;</kbd> | 𝐍    | Purge markers                                                |
+| <kbd>m</kbd> <kbd>,</kbd>     | 𝐍    | Purge marks                                                  |
+| <kbd>m</kbd> <kbd>Back,</kbd> | 𝐍    | Purge markers                                                |
 
 </details>
