@@ -48,5 +48,21 @@ set signcolumn=no
 " fix E363: pattern uses more memory than 'maxmempattern'  see: https://github.com/vim/vim/issues/2049
 set mmp=5000
 
-command! Markdownd !markdownd -w '%' >/dev/null &
-noremap <leader>m :Markdownd<cr><cr>
+" ---------- renzo's custom config ---------- 
+
+let g:elite_mode=1
+" paste in next line
+nnoremap <leader>op :put<cr>
+
+" markdown preview
+" command! Markdownd !markdownd -w '%' >/dev/null &
+" noremap <leader>m :Markdownd<cr><cr>
+
+" location open (errors)
+nnoremap <leader>ge :lopen<cr>
+
+" golangci-lint
+let g:ale_go_golangci_lint_options = '-E golint -E wsl -E gomnd -E unconvert'
+
+nnoremap <silent> <C-z> :ToggleTerminal<Enter>
+tnoremap <silent> <C-z> <C-\><C-n>:ToggleTerminal<Enter>

@@ -1,5 +1,9 @@
+#- { repo: dense-analysis/ale, if: 0 }
 - repo: arcticicestudio/nord-vim
 - repo: vim-airline/vim-airline
   rev: 8177d63
 - repo: vim-airline/vim-airline-themes
 - repo: tpope/vim-surround
+- repo: majutsushi/tagbar
+  hook_source: source $VIM_PATH/config/plugins/tagbar.vim
+- repo: caenrique/nvim-toggle-terminal

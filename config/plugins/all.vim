@@ -116,10 +116,10 @@ if dein#tap('ale')
 	nmap <silent> ]c <Plug>(ale_next)
 endif
 
-if dein#tap('vista.vim')
-	nnoremap <silent> <Leader>b :<C-u>Vista<CR>
-	nnoremap <silent> <Leader>a :<C-u>Vista show<CR>
-endif
+" if dein#tap('vista.vim')
+" 	" nnoremap <silent> <Leader>b :<C-u>Vista<CR>
+" 	" nnoremap <silent> <Leader>a :<C-u>Vista show<CR>
+" endif
 
 if dein#tap('emmet-vim')
 	autocmd user_events FileType html,css,javascript,javascriptreact
@@ -488,8 +488,11 @@ if dein#tap('python-mode')
 endif
 
 if dein#tap('fzf.vim')
+	" find current word use :Ag 
 	nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 	nnoremap <silent> <c-p> :Files <CR>
 endif
 
+" if dein#tap('caenrique/nvim-toggle-terminal')
+" endif
 " vim: set ts=2 sw=2 tw=80 noet :

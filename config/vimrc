@@ -66,6 +66,10 @@ endif
 call s:source_file('config/init.vim')
 call s:source_file('config/plugins/all.vim')
 
+" 加载自定义插件
+" gK 跳转 Dash
+call s:source_file('plugin/devhelp.vim')
+
 " 加载化个人配置
 call s:source_file('config/general.vim')
 call s:source_file('config/filetype.vim')

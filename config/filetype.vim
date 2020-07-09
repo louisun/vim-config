@@ -70,7 +70,7 @@ augroup user_plugin_filetype " {{{
 	autocmd FileType html setlocal path+=./;/
 
 	autocmd FileType markdown
-		\ setlocal expandtab spell spelllang=en_us,cjk conceallevel=0
+		\ setlocal expandtab conceallevel=0
 		\ | setlocal autoindent formatoptions=tcroqn2 comments=n:>
 
 	autocmd FileType apache setlocal path+=./;/

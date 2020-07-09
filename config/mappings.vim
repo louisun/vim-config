@@ -41,6 +41,8 @@ nnoremap gh g^
 nnoremap gl g$
 
 " Location/quickfix list movement
+" rz: similar config in 'config/plugins/all.vim'
+" (nmap ]c [c) -> ale config ale_previous ale_next
 nmap ]l :lnext<CR>
 nmap [l :lprev<CR>
 nmap ]q :cnext<CR>
@@ -96,7 +98,8 @@ nnoremap <Leader>Y :let @+=expand("%:p")<CR>:echo 'Yanked absolute path'<CR>
 nnoremap Q q
 nnoremap gQ @q
 
-" Start new line from any cursor position in insert-mode
+" Start new line from any cursor position in insert-mode (not work in terminal)
+" replaced by config/local.vim <C-j>
 inoremap <S-Return> <C-o>o
 
 " Deletes selection and start insert mode
@@ -306,8 +309,8 @@ nnoremap  [Window]   <Nop>
 nmap      s [Window]
 
 nnoremap <silent><C-w>z :vert resize<CR>:resize<CR>:normal! ze<CR>
-nnoremap <silent> [Window]v  :<C-u>split<CR>
-nnoremap <silent> [Window]g  :<C-u>vsplit<CR>
+nnoremap <silent> [Window]g  :<C-u>split<CR>
+nnoremap <silent> [Window]v  :<C-u>vsplit<CR>
 nnoremap <silent> [Window]t  :tabnew<CR>
 nnoremap <silent> [Window]o  :<C-u>only<CR>
 nnoremap <silent> [Window]b  :b#<CR>
@@ -315,8 +318,8 @@ nnoremap <silent> [Window]c  :close<CR>
 nnoremap <silent> [Window]x  :<C-u>call <SID>window_empty_buffer()<CR>
 
 " Split current buffer, go to previous window and previous buffer
-nnoremap <silent> [Window]sv :split<CR>:wincmd p<CR>:e#<CR>
-nnoremap <silent> [Window]sg :vsplit<CR>:wincmd p<CR>:e#<CR>
+nnoremap <silent> [Window]sg :split<CR>:wincmd p<CR>:e#<CR>
+nnoremap <silent> [Window]sv :vsplit<CR>:wincmd p<CR>:e#<CR>
 
 " Background dark/light toggle and contrasts
 nmap <silent> [Window]h :<C-u>call <SID>toggle_background()<CR>
