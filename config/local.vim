@@ -1,9 +1,46 @@
-" Update file. :update is equlivalent to :write, but it only saves the file if the buffer has been modified
+" ------------------------ variable --------------------------------
+let g:elite_mode=1
+
+" disable autochdir
+" set noautochdir
+" set signcolumn=no
+" set mmp=5000
+" location open (errors)
+
+" ------------------------ map --------------------------------
+inoremap jj <Esc>`^
+" move to next line (insert mode)
+inoremap <C-j> <C-o>o
+" move to end (insert mode)
+inoremap <C-l> <C-o>A
+
+noremap <leader>e :q<cr>
+noremap <leader>E :qa!<cr>
+noremap <leader>b :bd<cr>
+
 imap <Leader>w <esc>:update<CR>
+nnoremap <Leader>w <esc>:update<CR>
 
 " switch buffer
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> [n :bnext<CR>
+nnoremap <silent> <Tab>[ :bprevious<CR>
+nnoremap <silent> <Tab>] :bnext<CR>
+
+" change tab
+nnoremap <Tab>1 :tabprevious<CR>
+nnoremap <Tab>2 :tabnext<CR>
+
+" tab split
+nnoremap tt :tab split<CR>
+
+" Sudo to write
+cnoremap w!! w !sudo tee % >/dev/null
+
+" paste in next line
+nnoremap <leader>op :put<cr>
+" clear highlight search
+nnoremap <LocalLeader>1 :noh<CR>
+" F4 retab 替换 Tab 为空格
+map <F4> :%retab! <CR> :w <CR>
 
 " shortcuts to vimdiff, http://stackoverflow.com/questions/7309707/why-does-git-mergetool-opens-4-windows-in-vimdiff-id-expect-3
 if &diff
@@ -12,57 +49,12 @@ if &diff
     map <leader>3 :diffget REMOTE<CR>
 endif
 
-" change tab
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
-" https://stackoverflow.com/questions/15583346/how-can-i-temporarily-make-the-window-im-working-on-to-be-fullscreen-in-vim
-nnoremap tt :tab split<CR>
-
-" Sudo to write
-cnoremap w!! w !sudo tee % >/dev/null
-
-" add :FormatJSON command, https://coderwall.com/p/faceag/format-json-in-vim
-com! FormatJSON %!python3 -c "import json, sys, collections; print(json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=2))"
-com! FormatJSONPy3 %!python3 -m json.tool
-com! FormatJSONPy2 %!python -m json.tool
-com! FormatJSONPy2Utf8 %!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=2)"
-
-map <F4> :%retab! <CR> :w <CR>
-
-" use jj as esc
-inoremap jj <Esc>`^
-" move to next line (insert mode)
-inoremap <C-j> <C-o>o
-" move to end (insert mode)
-inoremap <C-l> <C-o>A
-noremap <leader>e :q<cr>
-noremap <leader>E :qa!<cr>
-noremap <leader>b :bd<cr>
-
 " omni Completion
 inoremap <C-Space> <C-x><C-o>
 
-" disable autochdir
-set noautochdir
-set signcolumn=no
-" fix E363: pattern uses more memory than 'maxmempattern'  see: https://github.com/vim/vim/issues/2049
-set mmp=5000
-
-" ---------- renzo's custom config ---------- 
-
-let g:elite_mode=1
-" paste in next line
-nnoremap <leader>op :put<cr>
+nnoremap <silent> <C-z> :ToggleTerminal<Enter>
+tnoremap <silent> <C-z> <C-\><C-n>:ToggleTerminal<Enter>
 
 " markdown preview
 " command! Markdownd !markdownd -w '%' >/dev/null &
 " noremap <leader>m :Markdownd<cr><cr>
-
-" location open (errors)
-nnoremap <leader>ge :lopen<cr>
-
-" golangci-lint
-let g:ale_go_golangci_lint_options = '-E golint -E wsl -E gomnd -E unconvert'
-
-nnoremap <silent> <C-z> :ToggleTerminal<Enter>
-tnoremap <silent> <C-z> <C-\><C-n>:ToggleTerminal<Enter>

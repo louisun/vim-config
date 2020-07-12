@@ -4,13 +4,11 @@
 " Elite-mode {{{
 " ----------
 if get(g:, 'elite_mode')
-
 	" Disable arrow movement, resize splits instead.
 	nnoremap <silent><Up>    :resize +1<CR>
 	nnoremap <silent><Down>  :resize -1<CR>
 	nnoremap <silent><Left>  :vertical resize +1<CR>
 	nnoremap <silent><Right> :vertical resize -1<CR>
-
 endif
 
 " }}}
@@ -43,10 +41,10 @@ nnoremap gl g$
 " Location/quickfix list movement
 " rz: similar config in 'config/plugins/all.vim'
 " (nmap ]c [c) -> ale config ale_previous ale_next
-nmap ]l :lnext<CR>
-nmap [l :lprev<CR>
-nmap ]q :cnext<CR>
-nmap [q :cprev<CR>
+nmap [1 :lprev<CR>
+nmap [2 :lnext<CR>
+nmap [z :cprev<CR>
+nmap [x :cnext<CR>
 
 " Whitespace jump (see plugin/whitespace.vim)
 nnoremap ]w :<C-u>WhitespaceNext<CR>
@@ -209,8 +207,8 @@ map <Leader>cd :lcd %:p:h<CR>:pwd<CR>
 nnoremap gf :rightbelow wincmd f<CR>
 
 " Fast saving from all modes
-nnoremap <Leader>w :write<CR>
-xnoremap <Leader>w <Esc>:write<CR>
+" nnoremap <Leader>w :write<CR>
+" xnoremap <Leader>w <Esc>:write<CR>
 nnoremap <C-s> :<C-u>write<CR>
 xnoremap <C-s> :<C-u>write<CR>
 cnoremap <C-s> <C-u>write<CR>

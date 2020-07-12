@@ -2,28 +2,6 @@
 " ---
 
 if dein#tap('vim-clap')
-	" nnoremap <silent><LocalLeader>f :<C-u>Clap! files<CR>
-	" nnoremap <silent><LocalLeader>b :<C-u>Clap! buffers<CR>
-	" nnoremap <silent><LocalLeader>g :<C-u>Clap! grep<CR>
-	" nnoremap <silent><LocalLeader>j :<C-u>Clap! jumps<CR>
-	" nnoremap <silent><LocalLeader>h :<C-u>Clap! help_tags<CR>
-	" nnoremap <silent><LocalLeader>t :<C-u>Clap! tags<CR>
-	" nnoremap <silent><LocalLeader>l :<C-u>Clap! loclist<CR>
-	" nnoremap <silent><LocalLeader>q :<C-u>Clap! quickfix<CR>
-	" nnoremap <silent><LocalLeader>m :<C-u>Clap! files ~/docs/books<CR>
-	" nnoremap <silent><LocalLeader>y :<C-u>Clap! yanks<CR>
-	" nnoremap <silent><LocalLeader>/ :<C-u>Clap! lines<CR>
-	" nnoremap <silent><LocalLeader>* :<C-u>Clap! lines ++query=<cword><CR>
-	" nnoremap <silent><LocalLeader>; :<C-u>Clap! command_history<CR>
-
-	" nnoremap <silent><Leader>gl :<C-u>Clap! commits<CR>
-	" nnoremap <silent><Leader>gt :<C-u>Clap! tags ++query=<cword><CR>
-	" xnoremap <silent><Leader>gt :<C-u>Clap! tags ++query=@visual<CR><CR>
-	" nnoremap <silent><Leader>gf :<C-u>Clap! files ++query=<cword><CR>
-	" xnoremap <silent><Leader>gf :<C-u>Clap! files ++query=@visual<CR><CR>
-	" nnoremap <silent><Leader>gg :<C-u>Clap! grep ++query=<cword><CR>
-	" xnoremap <silent><Leader>gg :<C-u>Clap! grep ++query=@visual<CR><CR>
-
 	autocmd user_events FileType clap_input call s:clap_mappings()
 
 	function! s:clap_mappings()
@@ -62,7 +40,7 @@ if dein#tap('denite.nvim')
 	nnoremap <silent><LocalLeader>t :<C-u>Denite tag<CR>
 	nnoremap <silent><LocalLeader>p :<C-u>Denite jump<CR>
 	nnoremap <silent><LocalLeader>h :<C-u>Denite help<CR>
-	nnoremap <silent><LocalLeader>m :<C-u>Denite file/rec -buffer-name=memo -path=~/docs/books<CR>
+	nnoremap <silent><LocalLeader>m :<-u>Denite file/rec -buffer-name=memo -path=~/docs/books<CR>
 	nnoremap <silent><LocalLeader>z :<C-u>Denite z -buffer-name=list<CR>
 	nnoremap <silent><LocalLeader>; :<C-u>Denite command_history command<CR>
 	nnoremap <silent><expr><LocalLeader>/ wordcount().chars > 10000 ?
@@ -103,7 +81,7 @@ endif
 if dein#tap('defx.nvim')
 	nnoremap <silent> <LocalLeader>e
 		\ :<C-u>Defx -toggle `getcwd()` -buffer-name=tab`tabpagenr()`<CR>
-	nnoremap <silent> <LocalLeader>a
+	nnoremap <silent> <LocalLeader>en
 		\ :<C-u>Defx `getcwd()` -search=`expand('%:p')` -buffer-name=tab`tabpagenr()`<CR>
 endif
 
@@ -426,73 +404,26 @@ if dein#tap('incsearch-fuzzy.vim')
 	map zg/ <Plug>(incsearch-fuzzy-stay)
 endif
 
-if dein#tap('python-mode')
-	" 注意如果使用了 rope 一般是项目根目录打开文件，不要切到子目录
-	" set noautochdir 注意这个自动切换目录会使rope找目录不正确，禁用，坑死我
-	" 如果你发现找不到你的 package 或者系统的，编辑你的代码根目录下 .ropeproject/config.py 里的文件就可以了
-	" 比如加上 prefs.add('python_path', '/usr/local/lib/python2.7/site-packages/') 就可以找到系统包了
-
-	" when PYTHON_VERSION env variable is set, use python2. default Use python3
-	" ch: 如果设置了 export PYTHON_VERSION=2 环境变量使用 python2 ，否则默认 python3
-	if $PYTHON_VERSION == '2'
-		let g:pymode_python = 'python'  " Values are `python`, `python3`, `disable`.
-	else
-		let g:pymode_python = 'python3'  " Values are `python`, `python3`, `disable`.
-	endif
-	let g:pymode_paths = reverse(split(globpath(getcwd().'/eggs', '*'), '\n'))    " support zc.buildout
-	let g:pymode_trim_whitespaces = 1
-	let g:pymode_quickfix_maxheight = 3
-	let g:pymode_indent = 1
-	let g:pymode_folding = 1
-	let g:pymode_breakpoint = 1
-	let g:pymode_breakpoint_bind = "<C-d>"  " NOTE: use ctrl+d insert ipdb
-	let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # BREAKPOINT TODO REMOVE; from nose.tools import set_trace; set_trace()'
-
-	let g:pymode_run = 1
-	let g:pymode_run_bind = "<C-e>"
-	let g:pymode_virtualenv = 1
-	let g:pymode_virtualenv_path = $VIRTUAL_ENV
-
-	" use coc.nvim, disalbe rope
-	let g:pymode_rope = 0
-	let g:pymode_rope_autoimport = 0
-	let g:pymode_rope_complete_on_dot = 0
-	let g:pymode_rope_lookup_project = 0
-	let g:pymode_rope_goto_definition_bind = "<C-]>"
-	let g:pymode_rope_goto_definition_cmd = 'vnew'
-	let g:pymode_rope_regenerate_on_write = 0
-
-	let g:pymode_lint = 1
-	let g:pymode_lint_on_write = 1
-	let g:pymode_lint_on_fly = 0
-	let g:pymode_lint_message = 1
-	let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint']
-	let g:pymode_lint_ignore = ["C0103, C0111, C0301, C0304, C0325, E0702, E1120, R0201, R0903, R0911, R0912, R0913, R1705, W0105, W0108, W0110, W0201, W0221, W0223, W0235, W0403, W0511, W0622, W0703, W1202"]
-	let g:pymode_lint_options_mccabe = { 'complexity': 15 }
-	let g:pymode_lint_signs = 1
-	" if you want use emoji you shoud set : Iterm2->Profiles->Text->Use Unicode versoin 9 widths
-	let g:pymode_lint_todo_symbol = '😡'
-	let g:pymode_lint_error_symbol = "\U2717"
-	let g:pymode_lint_comment_symbol = "\u2757"
-	let g:pymode_lint_visual_symbol = "\u0021"
-
-	" 修改默认的红线为浅色，solorized黑色主题
-	highlight ColorColumn ctermbg=233
-	let g:pymode_lint_cwindow = 0
-	let g:pymode_options_max_line_length = 120
-	let g:pymode_options_colorcolumn = 1
-	" 指定UltiSnips python的docstring风格, sphinx, google, numpy
-	let g:ultisnips_python_style = 'sphinx'
-	" use leader+f auto format pep8 python file
-	autocmd user_events FileType python nnoremap <silent> <Leader>f :<C-u>PymodeLintAuto<CR>
-endif
+" ------------------------------------------------------------------------
 
 if dein#tap('fzf.vim')
-	" find current word use :Ag 
-	nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
-	nnoremap <silent> <c-p> :Files <CR>
+    nnoremap <silent> <LocalLeader>ff :Rg<CR>
+    nnoremap <silent> <LocalLeader>fw :Ag <C-R><C-W><CR>
+    nnoremap <silent> <LocalLeader>fg :GFiles<CR>
+    nnoremap <silent> <LocalLeader>; :Files<CR>
+    nnoremap <silent> <LocalLeader>b :Buffers <CR>
+    nnoremap <silent> <LocalLeader>h :History <CR>
+    nnoremap <silent> <LocalLeader>m :Maps <CR>
+    nnoremap <silent> <LocalLeader>gl :Commits <CR>
 endif
 
-" if dein#tap('caenrique/nvim-toggle-terminal')
-" endif
-" vim: set ts=2 sw=2 tw=80 noet :
+if dein#tap('ale')
+    let g:ale_go_golangci_lint_options = '-E wsl -E gomnd -E unconvert'
+endif
+
+if dein#tap('vim-go')
+    " let g:go_metalinter_autosave = 1
+    " let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
+    autocmd BufWritePre *.go :GoImports
+    let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+endif

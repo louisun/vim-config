@@ -1,5 +1,14 @@
 " File Types
 " ===
+augroup renzo_plugin_filetype
+	" go 文件 FZF 只搜索 go
+	autocmd BufWinEnter *.go if $FZF_DEFAULT_COMMAND != 'fd -e go' |
+		\ let $FZF_DEFAULT_COMMAND = 'fd -e go' | endif
+
+	" go 文件 Rg 只搜索 go
+	autocmd BufWinEnter if $RG_PREFIX != 'rg -t go --column --line-number --no-heading --color=always --smart-case' |
+		\ let $RG_PREFIX = 'rg -t go --column --line-number --no-heading --color=always --smart-case' | endif
+augroup END
 
 augroup user_plugin_filetype " {{{
 	autocmd!
@@ -75,16 +84,8 @@ augroup user_plugin_filetype " {{{
 
 	autocmd FileType apache setlocal path+=./;/
 
-augroup END " }}}
+augroup END
 
-" Internal Plugin Settings  {{{
-" ------------------------
-
-" PHP {{{
-let g:PHP_removeCRwhenUnix = 0
-
-" }}}
-" Python {{{
 let g:python_highlight_all = 1
 " let g:python_highlight_builtins = 1
 " let g:python_highlight_exceptions = 1
@@ -93,17 +94,11 @@ let g:python_highlight_all = 1
 " let g:python_highlight_class_vars = 1
 " let g:python_highlight_operators = 1
 
-" }}}
-" Vim {{{
 let g:vimsyntax_noerror = 1
 let g:vim_indent_cont = &shiftwidth
 
-" }}}
-" Bash {{{
 let g:is_bash = 1
 
-" }}}
-" Java {{{
 let g:java_highlight_functions = 'style'
 let g:java_highlight_all = 1
 let g:java_highlight_debug = 1
@@ -111,26 +106,14 @@ let g:java_allow_cpp_keywords = 1
 let g:java_space_errors = 1
 let g:java_highlight_functions = 1
 
-" }}}
-" JavaScript {{{
 let g:SimpleJsIndenter_BriefMode = 1
 let g:SimpleJsIndenter_CaseIndentLevel = -1
 
-" }}}
-" Ruby {{{
 let g:ruby_no_expensive = 1
 
-" }}}
-" Folding {{{
-" augroup: a
-" function: f
 let g:vimsyn_folding = 'af'
 let g:tex_fold_enabled = 1
 let g:xml_syntax_folding = 1
 let g:php_folding = 2
 let g:php_phpdoc_folding = 1
 let g:perl_fold = 1
-" }}}
-" }}}
-
-" vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :

@@ -62,23 +62,31 @@ if filereadable($VIM_PATH . '/.vault.vim')
 	call s:source_file('.vault.vim')
 endif
 
-" 加载主配置文件，初始化插件管理
+" 通用配置
+call s:source_file('config/general.vim')
+
+
+" 主配置文件，初始化插件管理
 call s:source_file('config/init.vim')
+
+" 加载插件后的配置
 call s:source_file('config/plugins/all.vim')
 
-" 加载自定义插件
-" gK 跳转 Dash
+" 本地插件
 call s:source_file('plugin/devhelp.vim')
 
-" 加载化个人配置
-call s:source_file('config/general.vim')
+" 针对文件的配置
 call s:source_file('config/filetype.vim')
+
+" 通用的按键映射
 call s:source_file('config/mappings.vim')
 
-" 选择性加载本地自定义配置
+" --------------【本地配置】------------------
 if filereadable($VIM_PATH . '/config/local.vim')
 	call s:source_file('config/local.vim')
 endif
 
+
 " 主题配色
+" colorscheme gruvbox
 colorscheme nord

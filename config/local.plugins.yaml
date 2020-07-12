@@ -1,9 +1,15 @@
-#- { repo: dense-analysis/ale, if: 0 }
-- repo: arcticicestudio/nord-vim
+- { repo: dense-analysis/ale, if: 0 }
+- { repo: Shougo/denite.nvim, if: 0 }
+- { repo: plasticboy/vim-markdown, if: 0}
+# - repo: arcticicestudio/nord-vim
+- repo: mhinz/vim-startify
 - repo: vim-airline/vim-airline
-  rev: 8177d63
 - repo: vim-airline/vim-airline-themes
 - repo: tpope/vim-surround
 - repo: majutsushi/tagbar
   hook_source: source $VIM_PATH/config/plugins/tagbar.vim
 - repo: caenrique/nvim-toggle-terminal
+- repo: Valloric/ListToggle
+  hook_add: |
+    let g:lt_location_list_toggle_map = '<TAB>l'
+    let g:lt_quickfix_list_toggle_map = '<TAB>q'

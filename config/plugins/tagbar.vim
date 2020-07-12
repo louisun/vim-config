@@ -2,7 +2,7 @@
 "  majutsushi/tagbar 插件
 "==============================================================================
 " majutsushi/tagbar 插件打开关闭快捷键
-nmap <Leader>a :TagbarToggle<CR>
+nmap <LocalLeader>a :TagbarToggle<CR>
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
