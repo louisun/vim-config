@@ -119,20 +119,6 @@ if dein#tap('context.vim')
 	nmap <silent><Leader>tp :<C-u>ContextPeek<CR>
 endif
 
-if dein#tap('vim-go')
-	autocmd user_events FileType go
-		\   nmap <C-]> <Plug>(go-def)
-		\ | nmap <Leader>god  <Plug>(go-describe)
-		\ | nmap <Leader>goc  <Plug>(go-callees)
-		\ | nmap <Leader>goC  <Plug>(go-callers)
-		\ | nmap <Leader>goi  <Plug>(go-info)
-		\ | nmap <Leader>gom  <Plug>(go-implements)
-		\ | nmap <Leader>gos  <Plug>(go-callstack)
-		\ | nmap <Leader>goe  <Plug>(go-referrers)
-		\ | nmap <Leader>gor  <Plug>(go-run)
-		\ | nmap <Leader>gov  <Plug>(go-vet)
-		\ | nmap fd  <Plug>(go-def-vertical)
-endif
 
 if dein#tap('iron.nvim')
 	nmap <silent> <Leader>rr :<C-u>IronRepl<CR><Esc>
@@ -422,6 +408,19 @@ if dein#tap('ale')
 endif
 
 if dein#tap('vim-go')
+    autocmd FIleType go nmap <Leader>gr <Plug>(go-run)
+    " autocmd user_events FileType go
+	   " \ nmap <Leader>gr  <Plug>(go-run)
+	   " \ |  nmap <C-]> <Plug>(go-def)
+	   " \ | nmap <Leader>gd  <Plug>(go-describe)
+	   " \ | nmap <Leader>gc  <Plug>(go-callees)
+	   " \ | nmap <Leader>gC  <Plug>(go-callers)
+	   " \ | nmap <Leader>gi  <Plug>(go-info)
+	   " \ | nmap <Leader>gm  <Plug>(go-implements)
+	   " \ | nmap <Leader>gs  <Plug>(go-callstack)
+	   " \ | nmap <Leader>ge  <Plug>(go-referrers)
+	   " \ | nmap <Leader>gv  <Plug>(go-vet)
+	   " \ | nmap fd  <Plug>(go-def-vertical)
     " let g:go_metalinter_autosave = 1
     " let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
     autocmd BufWritePre *.go :GoImports

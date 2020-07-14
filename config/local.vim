@@ -56,5 +56,5 @@ nnoremap <silent> <C-z> :ToggleTerminal<Enter>
 tnoremap <silent> <C-z> <C-\><C-n>:ToggleTerminal<Enter>
 
 " markdown preview
-" command! Markdownd !markdownd -w '%' >/dev/null &
-" noremap <leader>m :Markdownd<cr><cr>
+command! Markdownd !markdownd -w '%' >/dev/null &
+noremap <leader>m :Markdownd<cr><cr>

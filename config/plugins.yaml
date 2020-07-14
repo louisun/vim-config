@@ -299,7 +299,8 @@
   merged: 0
   on_func: [fzf#vim#with_preview, fzf#run, vista#finder#fzf#Run]
   on_cmd: [Files, GFiles, GitFiles, Buffers, Lines, Locate, \
-            Colors, Ag, Rg, Tags, Maps, Commits]
+  Colors, Ag, Rg, Tags, Maps, Commits, Commands, FileTypes, Helptags, \
+  Windows, Marks, Btags, Bcommits, Snippets, History]
 
 - repo: Ron89/thesaurus_query.vim
   on_cmd:

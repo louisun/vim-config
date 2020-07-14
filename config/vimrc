@@ -62,9 +62,6 @@ if filereadable($VIM_PATH . '/.vault.vim')
 	call s:source_file('.vault.vim')
 endif
 
-" 通用配置
-call s:source_file('config/general.vim')
-
 
 " 主配置文件，初始化插件管理
 call s:source_file('config/init.vim')
@@ -86,6 +83,9 @@ if filereadable($VIM_PATH . '/config/local.vim')
 	call s:source_file('config/local.vim')
 endif
 
+
+" 通用配置
+call s:source_file('config/general.vim')
 
 " 主题配色
 " colorscheme gruvbox
