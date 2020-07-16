@@ -426,3 +426,10 @@ if dein#tap('vim-go')
     autocmd BufWritePre *.go :GoImports
     let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 endif
+
+if dein#tap('vim-bookmarks')
+    highlight BookmarkSign ctermbg=NONE ctermfg=160
+    highlight BookmarkLine ctermbg=194 ctermfg=NONE
+    let g:bookmark_sign = '♥'
+    let g:bookmark_highlight_lines = 1
+endif
