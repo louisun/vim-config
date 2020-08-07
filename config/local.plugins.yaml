@@ -15,3 +15,4 @@
     let g:lt_quickfix_list_toggle_map = '<TAB>q'
 - repo: MattesGroeger/vim-bookmarks
 - repo: easymotion/vim-easymotion
+- repo: solarnz/thrift.vim
