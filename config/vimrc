@@ -86,7 +86,3 @@ endif
 
 " 通用配置
 call s:source_file('config/general.vim')
-
-" 主题配色
-" colorscheme gruvbox
-colorscheme nord

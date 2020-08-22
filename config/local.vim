@@ -52,8 +52,8 @@ endif
 " omni Completion
 inoremap <C-Space> <C-x><C-o>
 
-nnoremap <silent> <C-z> :ToggleTerminal<Enter>
-tnoremap <silent> <C-z> <C-\><C-n>:ToggleTerminal<Enter>
+nnoremap <silent> <C-z> :FloatermToggle<Enter>
+tnoremap <silent> <C-z> <C-\><C-n>:FloatermToggle<Enter>
 
 " markdown preview
 command! Markdownd !markdownd -w '%' >/dev/null &
@@ -72,3 +72,9 @@ function! EasyMotionCoc() abort
   endif
 endfunction
 autocmd TextChanged,CursorMoved * call EasyMotionCoc()
+
+" WhcihKey 按键提示：<Leader> <LocalLeader> <Space>
+nnoremap <silent> <Leader> :WhichKey '<Leader>'<CR>
+nnoremap <silent> <LocalLeader> :WhichKey '<LocalLeader>'<CR>
+nnoremap <silent> <Space> :WhichKey '<Space>'<CR>
+

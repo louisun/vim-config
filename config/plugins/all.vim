@@ -380,7 +380,7 @@ endif
 
 if dein#tap('vim-airline')
 	let g:airline_powerline_fonts=1
-	let g:airline_theme = 'nord'
+	" let g:airline_theme = 'nord'
 	let g:airline#extensions#tabline#enabled = 1
 endif
 
@@ -392,16 +392,16 @@ endif
 
 " ------------------------------------------------------------------------
 
-if dein#tap('fzf.vim')
-    nnoremap <silent> <LocalLeader>ff :Rg<CR>
-    nnoremap <silent> <LocalLeader>fw :Ag <C-R><C-W><CR>
-    nnoremap <silent> <LocalLeader>fg :GFiles<CR>
-    nnoremap <silent> <LocalLeader>; :Files<CR>
-    nnoremap <silent> <LocalLeader>b :Buffers <CR>
-    nnoremap <silent> <LocalLeader>h :History <CR>
-    nnoremap <silent> <LocalLeader>m :Maps <CR>
-    nnoremap <silent> <LocalLeader>gl :Commits <CR>
-endif
+" if dein#tap('fzf.vim')
+"     nnoremap <silent> <LocalLeader>ff :Rg<CR>
+"     nnoremap <silent> <LocalLeader>fw :Ag <C-R><C-W><CR>
+"     nnoremap <silent> <LocalLeader>fg :GFiles<CR>
+"     nnoremap <silent> <LocalLeader>; :Files<CR>
+"     nnoremap <silent> <LocalLeader>b :Buffers <CR>
+"     nnoremap <silent> <LocalLeader>h :History <CR>
+"     nnoremap <silent> <LocalLeader>m :Maps <CR>
+"     nnoremap <silent> <LocalLeader>gl :Commits <CR>
+" endif
 
 if dein#tap('ale')
     let g:ale_go_golangci_lint_options = '-E wsl -E gomnd -E unconvert'

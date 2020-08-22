@@ -14,5 +14,64 @@
     let g:lt_location_list_toggle_map = '<TAB>l'
     let g:lt_quickfix_list_toggle_map = '<TAB>q'
 - repo: MattesGroeger/vim-bookmarks
+- repo: voldikss/vim-floaterm
 - repo: easymotion/vim-easymotion
 - repo: solarnz/thrift.vim
+  hook_add: |
+    let g:easymotion#is_active = 0
+    function! EasyMotionCoc() abort
+      if EasyMotion#is_active()
+        let g:easymotion#is_active = 1
+        CocDisable
+      else
+        if g:easymotion#is_active == 1
+          let g:easymotion#is_active = 0
+          CocEnable
+        endif
+      endif
+    endfunction
+    autocmd TextChanged,CursorMoved * call EasyMotionCoc()
+- repo: liuchengxu/vim-clap
+  hook_add: |
+    "history 打开文件的历史记录"
+    nnoremap <silent> <LocalLeader>ch :<C-u>Clap hist:<CR>
+    "history 打开文件的历史记录"
+    nnoremap <silent> <LocalLeader>fh :<C-u>Clap history<CR>
+    "maps 搜索命令快捷键"
+    nnoremap <silent> <LocalLeader>fm :Clap maps <CR>
+    "registers 搜索寄存器"
+    nnoremap <silent> <LocalLeader>fr :<C-u>Clap registers<CR>
+    "grep2 全局搜索内容"
+    nnoremap <silent> <LocalLeader>ff :<C-u>Clap grep2<CR>
+    "mark 搜索标记"
+    nnoremap <silent> <LocalLeader>fb :<C-u>Clap marks<CR>
+    "command 搜索命令"
+    nnoremap <silent> <LocalLeader>fc :<C-u>Clap command<CR>
+    "colors 搜索dotfiles"
+    nnoremap <silent> <LocalLeader>fd :<C-u>Clap dotfiles<CR>
+    "files 搜索文件"
+    nnoremap <silent> <LocalLeader>; :<C-u>Clap files ++finder=rg --ignore --hidden --files<cr>
+    "colors 搜索配色"
+    nnoremap <silent> <LocalLeader>tc :<C-u>Clap colors<CR>
+    "buffers 搜索缓冲区"
+    nnoremap <silent> <LocalLeader>b :<C-u>Clap buffers<CR>
+    let g:clap_provider_dotfiles = {
+          \ 'source': ['~/.config/nvim/init.vim', '~/.zshrc', '~/.gitconfig', '~/.tmux.conf'],
+          \ 'sink': 'e',
+          \ }
+- repo: hardcoreplayers/dashboard-nvim
+  hook_add: |
+    let g:dashboard_custom_shortcut = {
+      \ 'last_session'       : '; s l',
+      \ 'find_history'       : '; f h',
+      \ 'find_file'          : ';   ;',
+      \ 'new_file'           : ', n f',
+      \ 'change_colorscheme' : ', t c',
+      \ 'find_word'          : '; f f',
+      \ 'book_marks'         : '; f m',
+      \ }
+    let g:dashboard_default_header = 'pikachu' 
+    nmap <Leader>ss :<C-u>SessionSave<CR>
+    nmap <Leader>sl :<C-u>SessionLoad<CR>
+    "新建文件"
+    nnoremap <Leader>nf :<C-u>DashboardNewFile<CR>
