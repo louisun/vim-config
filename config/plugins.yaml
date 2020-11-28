@@ -6,24 +6,40 @@
 # Startup
 # -------
 - repo: Shougo/dein.vim
+# Provides the branch name of the current git repository
 - repo: itchyny/vim-gitbranch
+# 括号匹配 An efficient alternative to the standard matchparen plugin
 - repo: itchyny/vim-parenmatch
+# localrc is a Vim plugin to enable configuration file of each directory.
 - repo: thinca/vim-localrc
+# vim-cool disables search highlighting when you are done searching and re-enables it when you search again.
 - repo: romainl/vim-cool
+  hook_add: |
+    let g:CoolTotalMatches = 1
+# editorconfig is a Vim plugin to support EditorConfig
 - repo: sgur/vim-editorconfig
+# context_filetype provides functions to find fenced code blocks and their filetype.
 - repo: Shougo/context_filetype.vim
+# Vim-native "which" and "exec" functions targeted at local node project bin, falling back to which.
+# https://github.com/jaawerth/nrun.vim
+# nrun#Which('')
 - repo: jaawerth/nrun.vim
+# Opens the file manager or terminal at the directory of the current file in Vim.
+# gof: 进入该文件的目录
+# got: 进入该文件的终端
 - repo: justinmk/vim-gtfo
 - { repo: wellle/visual-split.vim, merged: 0 }
 - { repo: wellle/targets.vim, merged: 0 }
 - { repo: rafi/awesome-vim-colorschemes, merged: 0 }
 
+# Seamless navigation between tmux panes and vim splits
 - repo: christoomey/vim-tmux-navigator
   if: "! (has('win32') || has('win64'))"
 
 - repo: tpope/vim-sleuth
   hook_add: let g:sleuth_neighbor_limit = 5
 
+# 快速搜索
 - repo: liuchengxu/vim-clap
   merged: 0
   hook_add: |
@@ -270,6 +286,8 @@
     autocmd FileType fugitiveblame normal A
     augroup END
 
+# a git commit browser (:GV)
+# ,gv
 - repo: junegunn/gv.vim
   depends: vim-fugitive
   on_cmd: GV
@@ -302,6 +320,8 @@
   Colors, Ag, Rg, Tags, Maps, Commits, Commands, FileTypes, Helptags, \
   Windows, Marks, Btags, Bcommits, Snippets, History]
 
+# 同义词查询和替换，Python 写的
+# ,K
 - repo: Ron89/thesaurus_query.vim
   on_cmd:
     - Thesaurus
@@ -335,6 +355,7 @@
 # - repo: dominikduda/vim_current_word
 #   on_event: [ FileType, WinEnter, InsertLeave ]
 
+# 在单词下添加下划线
 - repo: itchyny/vim-cursorword
   on_event: FileType
   hook_source: |

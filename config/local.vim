@@ -36,7 +36,16 @@ nnoremap tt :tab split<CR>
 cnoremap w!! w !sudo tee % >/dev/null
 
 " paste in next line
-nnoremap <leader>op :put<cr>
+nnoremap <leader>op :put *<cr>
+" paste clipboard after word
+nnoremap <leader>p "*p
+" paste clipboard before word
+nnoremap <leader>P "*P
+
+" copy to clipboard
+nnoremap <leader>y "*yy
+vmap <leader>y "*y
+
 " clear highlight search
 nnoremap <LocalLeader>1 :noh<CR>
 " F4 retab 替换 Tab 为空格

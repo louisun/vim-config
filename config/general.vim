@@ -2,6 +2,7 @@
 " ===
 
 " General {{{
+set cursorline
 set mouse=c									 " Disable mouse in command-line mode
 set modeline								 " automatically setting options from modelines
 set report=0								 " Don't report on line changes
@@ -30,24 +31,24 @@ endif
 set viewoptions=folds,cursor,curdir,slash,unix
 set sessionoptions=curdir,help,tabpages,winsize
 
-if has('mac') && has('vim_starting')
-	let g:clipboard = {
-		\		'name': 'macOS-clipboard',
-		\		'copy': {
-		\			 '+': 'pbcopy',
-		\			 '*': 'pbcopy',
-		\		 },
-		\		'paste': {
-		\			 '+': 'pbpaste',
-		\			 '*': 'pbpaste',
-		\		},
-		\		'cache_enabled': 0,
-		\ }
-endif
+" if has('mac') && has('vim_starting')
+" 	let g:clipboard = {
+"		\		'name': 'macOS-clipboard',
+"		\		'copy': {
+"		\			 '+': 'pbcopy',
+"		\			 '*': 'pbcopy',
+"		\		 },
+"		\		'paste': {
+"		\			 '+': 'pbpaste',
+"		\			 '*': 'pbpaste',
+"		\		},
+"		\		'cache_enabled': 0,
+"		\ }
+" endif
 
-if has('clipboard') && has('vim_starting')
-	set clipboard& clipboard+=unnamedplus
-endif
+" if has('clipboard') && has('vim_starting')
+" 	set clipboard& clipboard+=unnamedplus
+" endif
 
 " }}}
 " Wildmenu {{{
@@ -298,3 +299,4 @@ endif
 
 " vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :
 colorscheme nord
+" colorscheme onedark
