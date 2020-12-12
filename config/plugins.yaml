@@ -421,7 +421,7 @@
 - repo: junegunn/goyo.vim
   depends: limelight.vim
   on_cmd: Goyo
-  hook_source: source $VIM_PATH/config/plugins/goyo.vim
+  hook_source: source $HOME/.cache/vim/dein/repos/github.com/junegunn/goyo.vim/plugin/goyo.vim
 
 - repo: junegunn/limelight.vim
   on_cmd: Limelight

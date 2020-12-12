@@ -66,7 +66,7 @@
       \ 'find_history'       : '; f h',
       \ 'find_file'          : ';   ;',
       \ 'new_file'           : ', n f',
-      \ 'change_colorscheme' : ', t c',
+      \ 'change_colorscheme' : '; t c',
       \ 'find_word'          : '; f f',
       \ 'book_marks'         : '; f m',
       \ }
@@ -75,3 +75,10 @@
     nmap <Leader>sl :<C-u>SessionLoad<CR>
     "新建文件"
     nnoremap <Leader>nf :<C-u>DashboardNewFile<CR>
+
+- repo: terryma/vim-smooth-scroll
+  hook_add: |
+    noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+    noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+    noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+    noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
